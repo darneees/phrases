@@ -1,0 +1,9 @@
+@import 'imports/functions',
+'imports/variables';
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+* {
+    @include reset();
+    font-family: "Manrope", sans-serif;
+}
