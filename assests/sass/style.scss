@@ -7,3 +7,179 @@
     @include reset();
     font-family: "Manrope", sans-serif;
 }
+
+body {
+    @include align(center, column, center, 0);
+    background-color: $bg-dark-10;
+    background-image: $bg-image-20;
+    background-size: 50px 50px;
+    background-position: -5px -5px;
+
+    #code-loader {
+        @include align(center, row, center, 0);
+        gap: .5rem;
+        background-color: $bg-dark-20;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 6;
+        font-weight: bold;
+        font-size: 100px;
+
+        .ball {
+            list-style: none;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: $bg-green-10;
+        }
+
+        .ball:nth-child(1) {
+            animation: bounce-1 2.1s ease-in-out infinite;
+        }
+
+        .ball:nth-child(2) {
+            animation: bounce-3 2.1s ease-in-out 0.3s infinite;
+        }
+
+        .ball:nth-child(3) {
+            animation: bounce-3 2.1s ease-in-out 0.6s infinite;
+        }
+    }
+}
+
+main {
+    @include align(center, column, center, 0);
+    width: 100%;
+    height: 100vh;
+
+    .main-card {
+        @include align(center, column, center, 3rem);
+        background-color: $bg-dark-20;
+        position: relative;
+        width: 600px;
+        height: 300px;
+        border-radius: 2rem;
+        border: .1rem solid $bg-gray-10;
+        box-shadow: $shadow;
+
+        .quote {
+            @include align(center, column, center, 0);
+            color: $bg-green-10;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: $bg-green-10;
+        }
+
+        .advice {
+            @include align(center, column, center, 1rem);
+            width: 70%;
+            color: $white;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-align: center;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+
+            i {
+                animation: up_down 2s infinite ease-in-out;
+            }
+
+            &.hidden {
+                opacity: 0;
+            }
+        }
+
+        .button {
+            @include align(center, column, center, 0);
+            background-color: $bg-green-10;
+            position: absolute;
+            border: none;
+            outline: none;
+            bottom: -2rem;
+            height: 4.4rem;
+            width: 4.4rem;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: $shadow;
+            animation: 1.8s pulse infinite ease-in-out;
+
+            i {
+                font-size: 2rem;
+                color: $white;
+            }
+        }
+    }
+}
+
+// loader animation
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 $bg-green-10;
+    }
+
+    100% {
+        box-shadow: 0 0 0 14px #69ffa800;
+    }
+}
+
+@keyframes bounce-1 {
+    50% {
+        transform: translateY(-90px);
+        scale: 0.3;
+    }
+}
+
+@keyframes bounce-2 {
+    50% {
+        transform: translateY(-90px);
+        scale: 0.3;
+    }
+}
+
+@keyframes bounce-3 {
+    50% {
+        transform: translateY(-90px);
+        scale: 0.3;
+    }
+}
+
+// animation up and down
+
+@keyframes up_down {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+// media queries
+@media screen and (max-width: 768px) {
+    main {
+        .main-card {
+            width: 90%;
+            height: 330px;
+
+            .button {
+                height: 4rem;
+                width: 4rem;
+
+                i {
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+}
