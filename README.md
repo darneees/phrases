@@ -1,5 +1,8 @@
 # Phrases
 
+![banner](https://github.com/darneees/phrases/assets/79709843/a4fa5790-8add-4da1-84c4-c4b9704b7e7b)
+
+
 ## ✔️ Tecnologias utilizadas:
 
 - ``HTML5``
